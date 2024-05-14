@@ -1,4 +1,6 @@
 ---
 import VueComp from '../components/vue.vue';
+import { getCollection } from 'astro:content';
+const blogEntries = await getCollection('posts');
 ---
-<VueComp client:load/>
+<VueComp client:load entries={blogEntries}/>

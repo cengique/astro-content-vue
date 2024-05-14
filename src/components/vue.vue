@@ -1,11 +1,12 @@
 <script setup>
-import { getCollection } from 'astro:content';
-const blogEntries = await getCollection('posts');
+const props = defineProps({
+        entries: Object
+    });
 </script>
 
 <template>
 <ul>
-    <li v-for="blog in blogEntries">
+    <li v-for="blog in entries">
       <a :href="`/my-blog-url/${blog.slug}`">{{blog.data.title}}</a>
       <img :src="blog.data.image.src">
     </li>
